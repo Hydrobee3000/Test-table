@@ -3,33 +3,62 @@ import TableCell from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import TableBody from '@mui/material/TableBody'
 import { TableCellWithField } from './common/TableCellWithField'
+import { makeStyles } from '@mui/styles'
+import { TextField } from '@mui/material'
+
+export const useStyles = makeStyles((theme) => ({
+  root: {},
+  tableBorder: {
+    border: 1,
+    // borderRightWidth: 1,
+    borderColor: 'black',
+    borderStyle: 'solid',
+  },
+}))
 
 export const BaseInfoTable = () => {
+  const classes = useStyles()
   return (
     <Table>
       <TableBody>
         <TableRow>
-          <TableCell align='center' colSpan={7}>
-            Общая информация
+          <TableCell className={classes.tableBorder} align='center' colSpan={7}>
+            <b>Общая информация</b>
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell align='center' colSpan={4}>
+          <TableCell className={classes.tableBorder} align='center' colSpan={4}>
             Отгрузка готового продукта
           </TableCell>
-          <TableCell align='center' rowSpan={3}>
+          <TableCell className={classes.tableBorder} align='center' rowSpan={3}>
             Время обработки цеха службами УТ
           </TableCell>
-          <TableCell align='center'>УРСБ</TableCell>
-          <TableCell align='center'>Химия</TableCell>
+          <TableCell className={classes.tableBorder} align='center'>
+            УРСБ
+          </TableCell>
+          <TableCell className={classes.tableBorder} align='center'>
+            Химия
+          </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell align='center'>Продукт</TableCell>
-          <TableCell align='center'>№ цистерн/ж.д. ваг.</TableCell>
-          <TableCell align='center'>Назначение</TableCell>
-          <TableCell align='center'>Шт/Тонны</TableCell>
-          <TableCellWithField value={null} rowspan={2} />
-          <TableCellWithField value={null} />
+          <TableCell className={classes.tableBorder} align='center'>
+            Продукт
+          </TableCell>
+          <TableCell className={classes.tableBorder} align='center'>
+            № цистерн/ж.д. ваг.
+          </TableCell>
+          <TableCell className={classes.tableBorder} align='center'>
+            Назначение
+          </TableCell>
+          <TableCell className={classes.tableBorder} align='center'>
+            Шт/Тонны
+          </TableCell>
+          <TableCell className={classes.tableBorder} rowSpan={2}>
+            <TextField defaultValue={null}></TextField>
+          </TableCell>
+          <TableCell className={classes.tableBorder} rowSpan={2}>
+            <TextField defaultValue={null}></TextField>
+          </TableCell>
         </TableRow>
         <TableRow>
           <TableCellWithField value={null} />
@@ -42,11 +71,12 @@ export const BaseInfoTable = () => {
           <TableCellWithField value={null} />
           <TableCellWithField value={null} />
           <TableCellWithField value={null} />
-          <TableCell rowSpan={6} align='center'>
+          <TableCell className={classes.tableBorder} rowSpan={6} align='center'>
             Замечания по работе цеха
           </TableCell>
-
-          <TableCellWithField colspan={2} rowspan={6} value={null} />
+          <TableCell className={classes.tableBorder} colSpan={2} rowSpan={6}>
+            <TextField style={{ width: '100%' }} multiline rows={15} defaultValue='' />
+          </TableCell>
         </TableRow>
         <TableRow>
           <TableCellWithField value={null} />
