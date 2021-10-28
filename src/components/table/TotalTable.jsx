@@ -6,6 +6,7 @@ import { TableCellWithField } from './common/TableCellWithField'
 import { TextField } from '@mui/material'
 import { useStyles } from './BaseInfoTable'
 
+//Nested in Header
 export const TotalTable = () => {
   const classes = useStyles()
 

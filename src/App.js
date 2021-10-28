@@ -9,17 +9,6 @@ import { TotalTable } from './components/table/TotalTable'
 import { Header } from './components/table/Header'
 
 function App() {
-  // const [state, setState] = useState([])
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await axios.get('/data')
-  //     setState(response.data)
-  //   }
-  //   fetchData()
-  // }, [])
-  // console.log(state)
-
   return (
     <div className='App'>
       <Paper sx={{ width: '100%' }}>

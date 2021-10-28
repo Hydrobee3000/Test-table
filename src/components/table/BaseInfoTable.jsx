@@ -6,6 +6,7 @@ import { TableCellWithField } from './common/TableCellWithField'
 import { makeStyles } from '@mui/styles'
 import { TextField } from '@mui/material'
 
+//Nested in Header
 export const useStyles = makeStyles((theme) => ({
   root: {},
   tableBorder: {
@@ -18,6 +19,8 @@ export const useStyles = makeStyles((theme) => ({
 
 export const BaseInfoTable = () => {
   const classes = useStyles()
+
+  const fieldArr = [1, 2, 3, 4]
   return (
     <Table>
       <TableBody>
@@ -78,36 +81,13 @@ export const BaseInfoTable = () => {
             <TextField style={{ width: '100%' }} multiline rows={15} defaultValue='' />
           </TableCell>
         </TableRow>
-        <TableRow>
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-        </TableRow>
-        <TableRow>
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-        </TableRow>
-        <TableRow>
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-        </TableRow>
-        <TableRow>
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-        </TableRow>
-        <TableRow>
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-          <TableCellWithField value={null} />
-        </TableRow>
+        {fieldArr.map((row) => (
+          <TableRow>
+            {fieldArr.map((cell) => (
+              <TableCellWithField value={null} />
+            ))}
+          </TableRow>
+        ))}
       </TableBody>
     </Table>
   )
