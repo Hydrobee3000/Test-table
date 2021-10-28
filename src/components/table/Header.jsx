@@ -29,6 +29,7 @@ export const Header = () => {
   const [shift, setShift] = useState('Смена 1') //состояние для 'смены'
   const [state, setState] = useState(null) //данные с сервера
   let textValue = `ЦПХП №1. Суточный рапорт за ${value.toLocaleDateString('ru-RU')} ${shift} Сменный мастер:`
+  console.log(shift)
 
   const fetchData = async () => {
     const response = await axios.get('/data')
@@ -77,7 +78,7 @@ export const Header = () => {
             <TextField
               style={{ width: '35em' }}
               id='outlined-read-only-input'
-              defaultValue={textValue}
+              value={textValue}
               variant='filled'
               InputProps={{
                 readOnly: true,
