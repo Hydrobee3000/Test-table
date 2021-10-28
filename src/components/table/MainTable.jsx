@@ -5,16 +5,19 @@ import TableBody from '@mui/material/TableBody'
 import { TableCellWithField } from './common/TableCellWithField'
 import { useStyles } from './BaseInfoTable'
 import { TextField } from '@mui/material'
+import { useContext } from 'react'
+import { StateContext } from './Header'
 
-export const MainTable = () => {
+export const MainTable = (props) => {
   const classes = useStyles()
+  const data = useContext(StateContext)
 
   return (
     <Table>
       <TableBody>
         <TableRow>
           <TableCell className={classes.tableBorder} rowSpan={3} align='center'>
-            Первичное охлаждение и машинный зал
+            <b>Первичное охлаждение и машинный зал</b>
           </TableCell>
           <TableCell component={'th'} className={classes.tableBorder} align='center'>
             ПГХ
@@ -40,12 +43,8 @@ export const MainTable = () => {
           <TableCell component={'th'} className={classes.tableBorder} align='center' rowSpan={2}>
             Давление газа после эксгаустеров мм.вод.ст.
           </TableCell>
-          <TableCell className={classes.tableBorder} align='center'>
-            1
-          </TableCell>
-          <TableCell className={classes.tableBorder} align='center'>
-            3
-          </TableCell>
+          <TableCellWithField value={1} />
+          <TableCellWithField value={3} />
           <TableCell component={'th'} className={classes.tableBorder} align='center'>
             сопротивление пгх
           </TableCell>
@@ -56,12 +55,17 @@ export const MainTable = () => {
           <TableCell component={'th'} className={classes.tableBorder} align='center'>
             t газа после ПГХ, ºC
           </TableCell>
-          <TableCellWithField value={27} />
+
+          {data !== null
+            ? data.gasTemp.map((item) => <TableCellWithField value={item.value} key={item.id} />)
+            : console.log('wait')}
+
+          {/* <TableCellWithField value={27} />
           <TableCellWithField value={31} />
           <TableCellWithField value={26} />
           <TableCellWithField value={26} />
           <TableCellWithField value={28} />
-          <TableCellWithField value={0} />
+          <TableCellWithField value={0} /> */}
           <TableCellWithField value={1900} />
           <TableCellWithField value={1900} />
           <TableCell component={'th'} className={classes.tableBorder} align='center'>

@@ -22,42 +22,42 @@ export const BaseInfoTable = () => {
     <Table>
       <TableBody>
         <TableRow>
-          <TableCell className={classes.tableBorder} align='center' colSpan={7}>
+          <TableCell component={'th'} className={classes.tableBorder} align='center' colSpan={7}>
             <b>Общая информация</b>
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className={classes.tableBorder} align='center' colSpan={4}>
+          <TableCell component={'th'} className={classes.tableBorder} align='center' colSpan={4}>
             Отгрузка готового продукта
           </TableCell>
-          <TableCell className={classes.tableBorder} align='center' rowSpan={3}>
+          <TableCell component={'th'} className={classes.tableBorder} align='center' rowSpan={3}>
             Время обработки цеха службами УТ
           </TableCell>
-          <TableCell className={classes.tableBorder} align='center'>
+          <TableCell component={'th'} className={classes.tableBorder} align='center'>
             УРСБ
           </TableCell>
-          <TableCell className={classes.tableBorder} align='center'>
+          <TableCell component={'th'} className={classes.tableBorder} align='center'>
             Химия
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className={classes.tableBorder} align='center'>
+          <TableCell component={'th'} className={classes.tableBorder} align='center'>
             Продукт
           </TableCell>
-          <TableCell className={classes.tableBorder} align='center'>
+          <TableCell component={'th'} className={classes.tableBorder} align='center'>
             № цистерн/ж.д. ваг.
           </TableCell>
-          <TableCell className={classes.tableBorder} align='center'>
+          <TableCell component={'th'} className={classes.tableBorder} align='center'>
             Назначение
           </TableCell>
-          <TableCell className={classes.tableBorder} align='center'>
+          <TableCell component={'th'} className={classes.tableBorder} align='center'>
             Шт/Тонны
           </TableCell>
           <TableCell className={classes.tableBorder} rowSpan={2}>
             <TextField defaultValue={null}></TextField>
           </TableCell>
           <TableCell className={classes.tableBorder} rowSpan={2}>
-            <TextField defaultValue={null}></TextField>
+            <TextField defaultValue={23}></TextField>
           </TableCell>
         </TableRow>
         <TableRow>
@@ -71,7 +71,7 @@ export const BaseInfoTable = () => {
           <TableCellWithField value={null} />
           <TableCellWithField value={null} />
           <TableCellWithField value={null} />
-          <TableCell className={classes.tableBorder} rowSpan={6} align='center'>
+          <TableCell component={'th'} className={classes.tableBorder} rowSpan={6} align='center'>
             Замечания по работе цеха
           </TableCell>
           <TableCell className={classes.tableBorder} colSpan={2} rowSpan={6}>

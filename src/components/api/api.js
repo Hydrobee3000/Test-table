@@ -8,12 +8,16 @@ var mock = new MockAdapter(axios)
 // arguments for reply are (status, data, headers)
 mock.onGet('/data').reply(200, {
   gasTemp: [
-    { id: 1, temp: 27 },
-    { id: 2, temp: 31 },
-    { id: 3, temp: 26 },
-    { id: 4, temp: 26 },
-    { id: 5, temp: 28 },
-    { id: 6, temp: 0 },
+    { id: 1, value: 26 },
+    { id: 2, value: 31 },
+    { id: 3, value: 26 },
+    { id: 4, value: 26 },
+    { id: 5, value: 28 },
+    { id: 6, value: 0 },
+  ],
+  gasPress: [
+    { id: 1, value: 1900 },
+    { id: 3, value: 1900 },
   ],
 })
 
