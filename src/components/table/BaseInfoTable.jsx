@@ -57,7 +57,7 @@ export const BaseInfoTable = () => {
             <TextField defaultValue={null}></TextField>
           </TableCell>
           <TableCell className={classes.tableBorder} rowSpan={2}>
-            <TextField defaultValue={23}></TextField>
+            <TextField defaultValue={null}></TextField>
           </TableCell>
         </TableRow>
         <TableRow>

@@ -4,7 +4,7 @@ import TableRow from '@mui/material/TableRow'
 import TableBody from '@mui/material/TableBody'
 import { TableCellWithField } from './common/TableCellWithField'
 import { useStyles } from './BaseInfoTable'
-import { TextField } from '@mui/material'
+import { getNativeSelectUtilityClasses, TextField } from '@mui/material'
 import { useContext } from 'react'
 import { StateContext } from './Header'
 
@@ -22,75 +22,97 @@ export const MainTable = (props) => {
           <TableCell component={'th'} className={classes.tableBorder} align='center'>
             ПГХ
           </TableCell>
-          <TableCell className={classes.tableBorder} align='center'>
-            1
-          </TableCell>
-          <TableCell className={classes.tableBorder} align='center'>
-            2
-          </TableCell>
-          <TableCell className={classes.tableBorder} align='center'>
-            3
-          </TableCell>
-          <TableCell className={classes.tableBorder} align='center'>
-            4
-          </TableCell>
-          <TableCell className={classes.tableBorder} align='center'>
-            5
-          </TableCell>
-          <TableCell className={classes.tableBorder} align='center'>
-            6
-          </TableCell>
+          {data !== null ? (
+            data.gasTemp.map((item) => (
+              <TableCell className={classes.tableBorder} align='center' key={item.id}>
+                {item.id}
+              </TableCell>
+            ))
+          ) : (
+            <>
+              <TableCell className={classes.tableBorder} />
+              <TableCell className={classes.tableBorder} />
+              <TableCell className={classes.tableBorder} />
+              <TableCell className={classes.tableBorder} />
+              <TableCell className={classes.tableBorder} />
+              <TableCell className={classes.tableBorder} />
+            </>
+          )}
+
           <TableCell component={'th'} className={classes.tableBorder} align='center' rowSpan={2}>
             Давление газа после эксгаустеров мм.вод.ст.
           </TableCell>
-          <TableCellWithField value={1} />
-          <TableCellWithField value={3} />
+
+          {data !== null ? (
+            data.gasPress.map((item) => <TableCellWithField value={item.id} key={item.id} />)
+          ) : (
+            <>
+              <TableCellWithField value={null} />
+              <TableCellWithField value={null} />
+            </>
+          )}
+
           <TableCell component={'th'} className={classes.tableBorder} align='center'>
             сопротивление пгх
           </TableCell>
-          <TableCellWithField value={0} />
-          <TableCellWithField value={0} />
+          <TableCellWithField value={null} />
+          <TableCellWithField value={null} />
         </TableRow>
         <TableRow>
           <TableCell component={'th'} className={classes.tableBorder} align='center'>
             t газа после ПГХ, ºC
           </TableCell>
 
-          {data !== null
-            ? data.gasTemp.map((item) => <TableCellWithField value={item.value} key={item.id} />)
-            : console.log('wait')}
+          {data !== null ? (
+            data.gasTemp.map((item) => <TableCellWithField value={item.value} key={item.id} />)
+          ) : (
+            <>
+              <TableCellWithField value={null} />
+              <TableCellWithField value={null} />
+              <TableCellWithField value={null} />
+              <TableCellWithField value={null} />
+              <TableCellWithField value={null} />
+              <TableCellWithField value={null} />
+            </>
+          )}
 
-          {/* <TableCellWithField value={27} />
-          <TableCellWithField value={31} />
-          <TableCellWithField value={26} />
-          <TableCellWithField value={26} />
-          <TableCellWithField value={28} />
-          <TableCellWithField value={0} /> */}
-          <TableCellWithField value={1900} />
-          <TableCellWithField value={1900} />
+          {data !== null ? (
+            data.gasPress.map((item) => <TableCellWithField value={item.value} key={item.id} />)
+          ) : (
+            <>
+              <TableCellWithField value={null} />
+              <TableCellWithField value={null} />
+            </>
+          )}
+
           <TableCell component={'th'} className={classes.tableBorder} align='center'>
             сопротивление газопровода
           </TableCell>
-          <TableCellWithField value={0} />
-          <TableCellWithField value={0} />
+          <TableCellWithField value={null} />
+          <TableCellWithField value={null} />
         </TableRow>
         <TableRow>
           <TableCell component={'th'} className={classes.tableBorder} align='center' colSpan={2}>
             ПГХ Расход воды на первич. охл-е, м<sup>3</sup>/ч
           </TableCell>
           <TableCell className={classes.tableBorder} colSpan={3}>
-            <TextField defaultValue={0 + '/' + 0}></TextField>
+            <TextField
+              inputProps={{ style: { textAlign: 'center' } }}
+              style={{ width: '40%', textAlign: 'center' }}
+              defaultValue={0}></TextField>{' '}
+            {<span style={{ fontSize: '40px', padding: '0 10px' }}>/</span>}
+            <TextField inputProps={{ style: { textAlign: 'center' } }} style={{ width: '40%' }} defaultValue={0}></TextField>
           </TableCell>
 
           <TableCell component={'th'} className={classes.tableBorder} align='center' colSpan={2}>
             ПГХ t воды на первич. охл-е, ºC
           </TableCell>
-          <TableCellWithField value={27} />
+          <TableCellWithField value={null} />
           <TableCell component={'th'} className={classes.tableBorder} align='center' colSpan={2}>
             ПГХ t воды после первич. охл-я, ºC
           </TableCell>
           <TableCell className={classes.tableBorder} colSpan={3}>
-            <TextField defaultValue={40}></TextField>
+            <TextField defaultValue={null}></TextField>
           </TableCell>
         </TableRow>
       </TableBody>

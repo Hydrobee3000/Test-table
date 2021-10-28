@@ -4,8 +4,7 @@ import { Button, FormControl, MenuItem, Paper, Select, Stack, TextField } from '
 import { DesktopDatePicker, LocalizationProvider } from '@mui/lab'
 import DateAdapter from '@mui/lab/AdapterDateFns'
 import ruLocale from 'date-fns/locale/ru'
-import React, { useEffect, useState } from 'react'
-import { Box } from '@mui/system'
+import React, { useState } from 'react'
 import { axios } from './../api/api'
 import { MainTable } from './MainTable'
 import { BaseInfoTable } from './BaseInfoTable'
@@ -27,17 +26,14 @@ export const StateContext = React.createContext()
 
 export const Header = () => {
   const [value, setValue] = useState(new Date()) //состояние для календаря
-  const [shift, setShift] = useState('') //состояние для смены
+  const [shift, setShift] = useState('Смена 1') //состояние для 'смены'
   const [state, setState] = useState(null) //данные с сервера
-  const [buttonClicked, setButtonClicked] = useState(false) //вызов запроса при нажатии кнопки
+  let textValue = `ЦПХП №1. Суточный рапорт за ${value.toLocaleDateString('ru-RU')} ${shift} Сменный мастер:`
+  const fetchData = async () => {
+    const response = await axios.get('/data')
 
-  useEffect(() => {
-    setState(null)
-
-    axios.get('/data').then(function (response) {
-      setState(response.data)
-    })
-  }, [buttonClicked])
+    setState({ ...response.data })
+  }
 
   const handleChange = (event) => {
     setShift(event.target.value)
@@ -72,19 +68,25 @@ export const Header = () => {
                   <MenuItem value={'Смена 3'}>Смена 3</MenuItem>
                 </Select>
               </FormControl>
-              <Button style={{ width: '20%' }} variant='outlined' onClick={() => setButtonClicked(!buttonClicked)}>
+              <Button style={{ width: '20%' }} variant='outlined' onClick={fetchData}>
                 Просмотр
               </Button>
             </Stack>
           </Paper>
-          <Stack direction='row' spacing={3} style={{ display: 'flex', alignContent: 'center' }}>
-            <Box component='div' sx={{ display: 'inline' }}>
-              Сменный рапорт. ЦПХП №1. {shift} Сменный мастер: <TextField style={{ width: '30%', margin: '10px' }} />
-            </Box>
+          <Stack direction='row' spacing={2}>
+            <TextField
+              style={{ width: '35em' }}
+              id='outlined-read-only-input'
+              defaultValue={textValue}
+              variant='filled'
+              InputProps={{
+                readOnly: true,
+              }}
+            />
+            <TextField />
           </Stack>
         </Table>
         <MainTable /> {/* основная таблица */}
-        {/* state={state} */}
         <BaseInfoTable /> {/* таблица с общей информацией */}
         <TotalTable /> {/* завершающая таблица */}
       </StateContext.Provider>
