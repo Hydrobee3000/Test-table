@@ -44,9 +44,9 @@ export const Header = () => {
       <StateContext.Provider value={state}>
         <Table>
           <Paper style={{ padding: '20px', display: 'flex', alignSelf: 'center' }} elevation={1} sx={{ width: '100%' }}>
-            <Stack direction='row' spacing={3}>
+            <Stack direction='row' spacing={2}>
               <TextField
-                style={{ width: '70%' }}
+                style={{ width: '55%' }}
                 id='outlined-read-only-input'
                 defaultValue='Сменный рапорт. ЦПХП №1.'
                 InputProps={{

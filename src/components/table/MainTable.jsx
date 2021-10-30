@@ -97,12 +97,9 @@ export const MainTable = (props) => {
             ПГХ Расход воды на первич. охл-е, м<sup>3</sup>/ч
           </TableCell>
           <TableCell className={classes.tableBorder} colSpan={3}>
-            <TextField
-              inputProps={{ style: { textAlign: 'center' } }}
-              style={{ width: '40%', textAlign: 'center' }}
-              defaultValue={0}></TextField>{' '}
+            <TextField inputProps={{ style: { textAlign: 'center' } }} style={{ width: '40%' }} defaultValue={null}></TextField>
             {<span style={{ fontSize: '40px', padding: '0 10px' }}>/</span>}
-            <TextField inputProps={{ style: { textAlign: 'center' } }} style={{ width: '40%' }} defaultValue={0}></TextField>
+            <TextField inputProps={{ style: { textAlign: 'center' } }} style={{ width: '40%' }} defaultValue={null}></TextField>
           </TableCell>
 
           <TableCell component={'th'} className={classes.tableBorder} align='center' colSpan={2}>
