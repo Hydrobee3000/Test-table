@@ -10,15 +10,6 @@ import { MainTable } from './MainTable'
 import { BaseInfoTable } from './BaseInfoTable'
 import { TotalTable } from './TotalTable'
 
-export const useStyles = makeStyles((theme) => ({
-  root: {},
-  tableBorder: {
-    border: 1,
-    // borderRightWidth: 1,
-    borderColor: 'black',
-    borderStyle: 'solid',
-  },
-}))
 const localeMap = {
   ru: ruLocale,
 }

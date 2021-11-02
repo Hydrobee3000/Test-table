@@ -11,7 +11,6 @@ export const useStyles = makeStyles((theme) => ({
   root: {},
   tableBorder: {
     border: 1,
-    // borderRightWidth: 1,
     borderColor: 'black',
     borderStyle: 'solid',
   },
