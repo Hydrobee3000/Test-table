@@ -23,7 +23,7 @@ export const MainTable = (props) => {
         <TableRow>
           <TableCell className={classes.tableBorder} rowSpan={3} align='center'>
             <Typography variant='h6' gutterBottom component='p'>
-              <b>Первичное охлаждение и машинный зал</b>
+              Первичное охлаждение и машинный зал
             </Typography>
           </TableCell>
           <TableCell component={'th'} className={classes.tableBorder} align='center'>
