@@ -1,13 +1,11 @@
 export var axios = require('axios')
 var MockAdapter = require('axios-mock-adapter')
 
-// This sets the mock adapter on the default instance
 var mock = new MockAdapter(axios)
 
-// Mock any GET request to /users
-// arguments for reply are (status, data, headers)
 mock.onGet('/data').reply(200, {
   gasTemp: [
+    //информация о температуре газа
     { id: 1, value: 29 },
     { id: 2, value: 31 },
     { id: 3, value: 26 },
@@ -16,12 +14,14 @@ mock.onGet('/data').reply(200, {
     { id: 6, value: 0 },
   ],
   gasPress: [
+    //информация о давлении газа
     { id: 1, value: 1900 },
     { id: 3, value: 1900 },
   ],
 })
 
 export const mockAPI = {
+  // запрос на получение данных
   getData() {
     return axios.get('/data').then((response) => {
       return response.data
