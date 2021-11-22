@@ -6,7 +6,7 @@ import { Header } from './components/table/Header'
 function App() {
   return (
     <div className='App'>
-      <Paper sx={{ width: '100%' }}>
+      <Paper sx={{ minWidth: '1200px' }}>
         <TableContainer sx={{ maxHeight: 1840 }}>
           <Header />
         </TableContainer>
